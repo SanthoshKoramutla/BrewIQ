@@ -821,59 +821,165 @@
       .try-grid { grid-template-columns: 1fr; }
     }
 
-    /* Auth panel */
+    /* Nav auth buttons */
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .nav-user-info { display: flex; align-items: center; gap: 12px; }
+    .nav-user-pill {
+      font-size: 0.8125rem; color: var(--text-muted);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--border);
+      border-radius: 100px; padding: 5px 14px;
+    }
+    .btn-ghost {
+      background: transparent; color: var(--cream);
+      border-color: transparent;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: var(--border); }
+    .btn-xs { padding: 6px 14px; font-size: 0.8125rem; border-radius: 100px; }
+
+    /* Auth status bar */
     #auth-panel {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      margin-bottom: 32px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin-bottom: 20px;
       text-align: center;
     }
-    #auth-panel p { color: var(--text-muted); margin-bottom: 16px; font-size: 0.9375rem; }
+    #auth-done-step { color: var(--text-muted); font-size: 0.9rem; }
+    #auth-done-step a { color: var(--gold); text-decoration: underline; }
+
+    /* Demo banner */
     #demo-banner {
       display: none;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      background: #1a1200;
-      border: 1px solid rgba(212,170,60,0.3);
-      border-radius: 8px;
-      padding: 10px 20px;
-      margin-bottom: 20px;
+      gap: 14px;
+      background: linear-gradient(135deg, #1a1200 0%, #120d00 100%);
+      border: 1px solid rgba(212,170,60,0.35);
+      border-radius: 10px;
+      padding: 12px 24px;
+      margin-bottom: 24px;
       font-size: 0.9rem;
       color: var(--text-muted);
       flex-wrap: wrap;
       text-align: center;
     }
-    #demo-banner a { color: var(--gold); text-decoration: underline; }
-    #auth-email-input {
-      width: 100%; max-width: 340px;
-      padding: 11px 16px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid var(--border-strong);
-      border-radius: 8px;
-      color: var(--cream);
-      font-family: var(--font-body);
-      font-size: 0.9375rem;
-      margin-bottom: 12px;
+    #demo-banner strong { color: var(--gold-light); }
+
+    /* ========================================
+       MODALS
+    ======================================== */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(10, 6, 3, 0.85);
+      backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
     }
-    #auth-email-input::placeholder { color: var(--text-muted); }
-    #auth-email-input:focus { outline: none; border-color: var(--gold); }
-    #auth-send-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 11px 28px;
+    .modal-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 44px 40px;
+      width: 100%; max-width: 440px;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+      animation: modal-in 0.25s ease;
+    }
+    .modal-wide { max-width: 900px; }
+    @keyframes modal-in {
+      from { opacity: 0; transform: translateY(16px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 18px;
+      background: none; border: none;
+      font-size: 1.25rem; color: #999; cursor: pointer; line-height: 1;
+      padding: 4px 8px; border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .modal-close:hover { background: #f0f0f0; color: #333; }
+    .modal-logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--espresso); margin-bottom: 20px;
+    }
+    .modal-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.75rem; font-weight: 700;
+      color: var(--espresso); margin-bottom: 6px;
+    }
+    .modal-sub { color: #7a6255; font-size: 0.9375rem; margin-bottom: 24px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; font-size: 0.8125rem; font-weight: 600;
+      color: #4a3020; margin-bottom: 6px;
+    }
+    .form-group input {
+      width: 100%; padding: 11px 14px;
+      border: 1.5px solid #ddd; border-radius: 8px;
+      font-family: var(--font-body); font-size: 0.9375rem; color: #1a0f09;
+      background: #faf9f7;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus {
+      outline: none; border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212,168,83,0.18);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-error { color: #c0392b; font-size: 0.8125rem; margin-bottom: 12px; }
+    .btn-full { width: 100%; justify-content: center; border-radius: 10px; }
+    .modal-switch {
+      text-align: center; margin-top: 18px;
+      font-size: 0.875rem; color: #7a6255;
+    }
+    .modal-switch a { color: var(--brown); font-weight: 600; cursor: pointer; }
+    .modal-switch a:hover { color: var(--gold); }
+
+    /* Tier cards */
+    .tier-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    @media (max-width: 700px) { .tier-cards { grid-template-columns: 1fr; } }
+    .tier-card {
+      border: 1.5px solid #e8e0d5;
+      border-radius: 14px;
+      padding: 24px 20px;
+      display: flex; flex-direction: column;
+      position: relative;
+      background: #fdfcfb;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .tier-card:hover { border-color: var(--gold); box-shadow: 0 8px 24px rgba(212,168,83,0.12); }
+    .tier-card--highlight {
+      border-color: var(--gold);
+      background: #fffdf5;
+      box-shadow: 0 8px 32px rgba(212,168,83,0.18);
+    }
+    .tier-badge-top {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
       background: var(--gold); color: var(--espresso);
-      border: none; border-radius: 100px;
-      font-family: var(--font-body); font-size: 0.9375rem; font-weight: 600;
-      cursor: pointer; transition: background 0.2s;
-      margin-left: 8px;
+      font-size: 0.6875rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 12px; border-radius: 100px;
+      white-space: nowrap;
     }
-    #auth-send-btn:hover { background: var(--gold-light); }
-    #auth-send-btn:disabled { opacity: 0.55; cursor: not-allowed; }
-    #auth-msg { font-size: 0.875rem; margin-top: 10px; color: var(--gold); }
-    #auth-done-step { color: var(--text-muted); font-size: 0.9rem; }
-    #auth-done-step a { color: var(--gold); text-decoration: underline; }
+    .tier-name { font-size: 0.875rem; font-weight: 700; color: #7a6255; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .tier-price {
+      font-family: var(--font-heading);
+      font-size: 2rem; font-weight: 700; color: var(--espresso);
+      margin-bottom: 4px; line-height: 1;
+    }
+    .tier-price span { font-size: 0.875rem; font-weight: 400; color: #9a8070; font-family: var(--font-body); }
+    .tier-note { font-size: 0.75rem; color: #9a8070; margin-bottom: 14px; }
+    .tier-divider { border: none; border-top: 1px solid #ece5dc; margin: 14px 0; }
+    .tier-features { list-style: none; padding: 0; margin-bottom: 20px; flex: 1; }
+    .tier-features li { font-size: 0.875rem; color: #4a3020; padding: 4px 0; display: flex; align-items: flex-start; gap: 7px; }
+    .tier-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .tier-select-btn { margin-top: auto; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -895,7 +1001,15 @@
       <div class="nav-divider"></div>
       <span class="nav-sub">by Dhinova AI</span>
     </div>
-    <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhinova-ai/new-meeting-1'});return false;" class="btn btn-gold btn-sm">Request Demo</a>
+    <div class="nav-actions" id="nav-guest-actions">
+      <button class="btn btn-ghost btn-sm" id="nav-login-btn">Log In</button>
+      <button class="btn btn-outline btn-sm" id="nav-signup-btn">Sign Up Free</button>
+      <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhinova-ai/new-meeting-1'});return false;" class="btn btn-gold btn-sm">Request Demo</a>
+    </div>
+    <div class="nav-user-info" id="nav-user-info" style="display:none">
+      <span class="nav-user-pill" id="nav-user-pill"></span>
+      <a href="#" class="btn btn-ghost btn-sm" id="nav-logout-btn">Sign out</a>
+    </div>
   </div>
 </nav>
 
@@ -1083,24 +1197,17 @@
       <p class="section-subtitle">Upload an actual invoice or sales file, or ask a question. These connect directly to the live BrewIQ workflows.</p>
     </div>
 
-    <!-- Auth gate -->
-    <div id="auth-panel">
-      <div id="auth-email-step">
-        <p>Sign in with your email to upload your own data and run private queries.</p>
-        <div style="display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap">
-          <input id="auth-email-input" type="email" placeholder="your@email.com" />
-          <button id="auth-send-btn">Send Magic Link</button>
-        </div>
-        <p id="auth-msg" style="display:none"></p>
-      </div>
-      <div id="auth-done-step" style="display:none">
-        Signed in as <strong id="auth-user-email"></strong> &nbsp;&middot;&nbsp; <a href="#" id="auth-logout">Sign out</a>
+    <!-- Auth status bar (shown after login) -->
+    <div id="auth-panel" style="display:none">
+      <div id="auth-done-step">
+        &#10003; Signed in as <strong id="auth-user-email"></strong> &nbsp;&middot;&nbsp; <a href="#" id="auth-logout">Sign out</a>
       </div>
     </div>
 
+    <!-- Demo banner -->
     <div id="demo-banner">
-      <span>&#9889; <strong>Demo mode</strong> &mdash; data is shared &amp; reset every 3 days.</span>
-      <a href="#auth-panel">Sign in</a> to keep your data private.
+      <span>&#9889; <strong>You're exploring with sample data.</strong> Uploads are limited to 200 rows and cleared every 3 days.</span>
+      <button class="btn btn-gold btn-xs" id="demo-banner-signup">Sign up free &rarr;</button>
     </div>
 
     <div class="try-grid" id="try-grid" style="display:none">
@@ -1428,7 +1535,7 @@
   });
 
   // =============================================
-  // AUTH (Supabase Magic Link)
+  // AUTH (Email + Password)
   // =============================================
   const SUPABASE_URL      = 'https://knrbkdmrqjhajsnmuhgm.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtucmJrZG1ycWpoYWpzbm11aGdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEyMjc3ODgsImV4cCI6MjA4NjgwMzc4OH0.dDGEgklW6ezkQoisT2CAcmgFqsQ2uEJ8ZemUtWdf2ZY';
@@ -1441,98 +1548,187 @@
   const DEMO_PASSWORD = 'BrewIQ-Demo-2026x';
   const DEMO_USER_ID  = 'aab48374-89f2-4b00-896c-61aeeb0f9eda';
 
-  const tryGrid      = document.getElementById('try-grid');
-  const authPanel    = document.getElementById('auth-panel');
-  const demoBanner   = document.getElementById('demo-banner');
-  const emailStep    = document.getElementById('auth-email-step');
-  const doneStep     = document.getElementById('auth-done-step');
-  const emailInput   = document.getElementById('auth-email-input');
-  const sendBtn      = document.getElementById('auth-send-btn');
-  const authMsg      = document.getElementById('auth-msg');
-  const authEmail    = document.getElementById('auth-user-email');
-  const logoutLink   = document.getElementById('auth-logout');
+  const tryGrid    = document.getElementById('try-grid');
+  const authPanel  = document.getElementById('auth-panel');
+  const demoBanner = document.getElementById('demo-banner');
+  const doneStep   = document.getElementById('auth-done-step');
+  const authEmail  = document.getElementById('auth-user-email');
 
   function getActiveSession() { return currentSession || demoSession; }
 
   function showDemoMode() {
     tryGrid.style.display    = 'grid';
     demoBanner.style.display = 'flex';
+    authPanel.style.display  = 'none';
   }
 
   async function initDemo() {
     try {
       const { data } = await sb.auth.signInWithPassword({ email: DEMO_EMAIL, password: DEMO_PASSWORD });
-      if (data && data.session) {
-        demoSession = data.session;
-        showDemoMode();
-      }
-    } catch (e) {
-      console.warn('Demo init failed:', e);
-    }
+      if (data && data.session) { demoSession = data.session; showDemoMode(); }
+    } catch (e) { console.warn('Demo init failed:', e); }
   }
 
   sb.auth.getSession().then(({ data: { session } }) => {
     if (session) {
-      if (session.user.id === DEMO_USER_ID) {
-        demoSession = session;
-        showDemoMode();
-      } else {
-        handleAuthSuccess(session);
-      }
-    } else {
-      initDemo();
-    }
+      if (session.user.id === DEMO_USER_ID) { demoSession = session; showDemoMode(); }
+      else { handleAuthSuccess(session); }
+    } else { initDemo(); }
   });
 
   sb.auth.onAuthStateChange((_event, session) => {
     if (session) {
-      if (session.user.id === DEMO_USER_ID) {
-        demoSession = session;  // refresh demo token, no UI change
-      } else {
-        handleAuthSuccess(session);
-      }
-    } else {
-      handleAuthSignOut();
-    }
-  });
-
-  sendBtn.addEventListener('click', async () => {
-    const email = emailInput.value.trim();
-    if (!email) return;
-    sendBtn.disabled = true;
-    sendBtn.textContent = 'Sending…';
-    const { error } = await sb.auth.signInWithOtp({ email, options: { shouldCreateUser: true } });
-    authMsg.style.display = 'block';
-    authMsg.textContent = error ? error.message : 'Magic link sent! Check your inbox.';
-    sendBtn.disabled = false;
-    sendBtn.textContent = 'Send Magic Link';
-  });
-
-  logoutLink.addEventListener('click', async e => {
-    e.preventDefault();
-    await sb.auth.signOut();
+      if (session.user.id === DEMO_USER_ID) { demoSession = session; }
+      else { handleAuthSuccess(session); }
+    } else { handleAuthSignOut(); }
   });
 
   function handleAuthSuccess(session) {
     currentSession = session;
-    emailStep.style.display  = 'none';
-    doneStep.style.display   = 'block';
-    authEmail.textContent    = session.user.email;
     tryGrid.style.display    = 'grid';
     demoBanner.style.display = 'none';
+    authPanel.style.display  = 'block';
+    doneStep.style.display   = 'block';
+    authEmail.textContent    = session.user.email;
+    // Nav: switch to user pill
+    document.getElementById('nav-guest-actions').style.display = 'none';
+    const info = document.getElementById('nav-user-info');
+    info.style.display = 'flex';
+    document.getElementById('nav-user-pill').textContent = '✦ ' + session.user.email;
   }
 
   function handleAuthSignOut() {
     currentSession = null;
-    emailStep.style.display = 'block';
-    doneStep.style.display   = 'none';
-    if (demoSession) {
-      showDemoMode();
-    } else {
-      tryGrid.style.display    = 'none';
-      demoBanner.style.display = 'none';
-    }
+    authPanel.style.display = 'none';
+    document.getElementById('nav-guest-actions').style.display = 'flex';
+    document.getElementById('nav-user-info').style.display    = 'none';
+    if (demoSession) { showDemoMode(); }
+    else { tryGrid.style.display = 'none'; demoBanner.style.display = 'none'; }
   }
+
+  document.getElementById('auth-logout').addEventListener('click', async e => {
+    e.preventDefault(); await sb.auth.signOut();
+  });
+  document.getElementById('nav-logout-btn').addEventListener('click', async e => {
+    e.preventDefault(); await sb.auth.signOut();
+  });
+
+  // ── Modal helpers ──────────────────────────────────────────
+  function showModal(name) { document.getElementById('modal-' + name).style.display = 'flex'; }
+  function hideModal(name) { document.getElementById('modal-' + name).style.display = 'none'; }
+  function showError(id, msg) {
+    const el = document.getElementById(id);
+    el.textContent = msg; el.style.display = 'block';
+  }
+  function hideError(id) { document.getElementById(id).style.display = 'none'; }
+
+  document.getElementById('nav-login-btn').onclick   = () => showModal('login');
+  document.getElementById('nav-signup-btn').onclick  = () => showModal('signup');
+  document.getElementById('demo-banner-signup').onclick = () => showModal('signup');
+  document.getElementById('login-close').onclick     = () => hideModal('login');
+  document.getElementById('signup-close').onclick    = () => { hideModal('signup'); resetSignup(); };
+  document.getElementById('switch-to-signup').onclick = () => { hideModal('login'); showModal('signup'); };
+  document.getElementById('switch-to-login').onclick  = () => { hideModal('signup'); resetSignup(); showModal('login'); };
+  document.getElementById('signup-back').onclick     = () => {
+    document.getElementById('signup-step-2').style.display = 'none';
+    document.getElementById('signup-step-1').style.display = 'block';
+  };
+
+  // Close modals on overlay click
+  ['modal-login','modal-signup'].forEach(id => {
+    document.getElementById(id).addEventListener('click', e => {
+      if (e.target === e.currentTarget) {
+        hideModal(id.replace('modal-', ''));
+        if (id === 'modal-signup') resetSignup();
+      }
+    });
+  });
+
+  function resetSignup() {
+    document.getElementById('signup-step-1').style.display = 'block';
+    document.getElementById('signup-step-2').style.display = 'none';
+    hideError('signup-error-1'); hideError('signup-error-2');
+  }
+
+  // ── Login ──────────────────────────────────────────────────
+  document.getElementById('login-submit').onclick = async () => {
+    hideError('login-error');
+    const email    = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    if (!email || !password) { showError('login-error', 'Please enter your email and password.'); return; }
+    const btn = document.getElementById('login-submit');
+    btn.disabled = true; btn.textContent = 'Signing in…';
+    const { error } = await sb.auth.signInWithPassword({ email, password });
+    btn.disabled = false; btn.textContent = 'Log In';
+    if (error) { showError('login-error', error.message); }
+    else { hideModal('login'); }
+  };
+
+  // ── Signup step 1 → step 2 ─────────────────────────────────
+  document.getElementById('signup-next').onclick = () => {
+    hideError('signup-error-1');
+    const name     = document.getElementById('signup-name').value.trim();
+    const email    = document.getElementById('signup-email').value.trim();
+    const password = document.getElementById('signup-password').value;
+    if (!name)  { showError('signup-error-1', 'Please enter your full name.'); return; }
+    if (!email || !email.includes('@')) { showError('signup-error-1', 'Please enter a valid email address.'); return; }
+    if (password.length < 8) { showError('signup-error-1', 'Password must be at least 8 characters.'); return; }
+    document.getElementById('signup-step-1').style.display = 'none';
+    document.getElementById('signup-step-2').style.display = 'block';
+  };
+
+  // ── Signup: tier selection → create account ────────────────
+  document.querySelectorAll('.tier-select-btn').forEach(btn => {
+    btn.onclick = async () => {
+      hideError('signup-error-2');
+      const tier     = btn.closest('.tier-card').dataset.tier;
+      const name     = document.getElementById('signup-name').value.trim();
+      const email    = document.getElementById('signup-email').value.trim();
+      const phone    = document.getElementById('signup-phone').value.trim();
+      const password = document.getElementById('signup-password').value;
+      const origText = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Creating account…';
+
+      const { data, error } = await sb.auth.signUp({
+        email, password,
+        options: {
+          data: { full_name: name, phone: phone || null },
+          emailRedirectTo: 'https://brew.dhinovaai.com'
+        }
+      });
+
+      if (error) {
+        btn.disabled = false; btn.textContent = origText;
+        showError('signup-error-2', error.message); return;
+      }
+
+      // Set tier on profile (the trigger creates a 'free' row; we override if trial/premium)
+      if (data.session && tier !== 'free') {
+        const trialDates = tier === 'trial' ? {
+          trial_started_at: new Date().toISOString(),
+          trial_ends_at:    new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString()
+        } : {};
+        await fetch(SUPABASE_URL + '/rest/v1/profiles', {
+          method: 'POST',
+          headers: {
+            apikey: SUPABASE_ANON_KEY,
+            Authorization: 'Bearer ' + data.session.access_token,
+            'Content-Type': 'application/json',
+            Prefer: 'resolution=merge-duplicates'
+          },
+          body: JSON.stringify({ user_id: data.user.id, tier, ...trialDates })
+        });
+      }
+
+      btn.disabled = false; btn.textContent = origText;
+      hideModal('signup'); resetSignup();
+
+      // If email confirmation is required, show a friendly note
+      if (!data.session) {
+        alert('Account created! Please check your email (' + email + ') to confirm your account, then log in.');
+      }
+    };
+  });
 
   // =============================================
   // API ENDPOINTS
@@ -1711,6 +1907,129 @@
       .replace(/"/g, '&quot;');
   }
 </script>
+
+<!-- ============================================================
+     LOGIN MODAL
+============================================================ -->
+<div id="modal-login" class="modal-overlay" style="display:none">
+  <div class="modal-card">
+    <button class="modal-close" id="login-close" aria-label="Close">&#10005;</button>
+    <div class="modal-logo">&#9749; BrewIQ</div>
+    <h2>Welcome back</h2>
+    <p class="modal-sub">Sign in to your BrewIQ account</p>
+    <div class="form-group">
+      <label for="login-email">Email</label>
+      <input type="email" id="login-email" placeholder="you@company.com" autocomplete="email" />
+    </div>
+    <div class="form-group">
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" autocomplete="current-password" />
+    </div>
+    <p id="login-error" class="form-error" style="display:none"></p>
+    <button class="btn btn-gold btn-full" id="login-submit">Log In</button>
+    <p class="modal-switch">Don&rsquo;t have an account? <a id="switch-to-signup">Sign up free</a></p>
+  </div>
+</div>
+
+<!-- ============================================================
+     SIGNUP MODAL (2-step)
+============================================================ -->
+<div id="modal-signup" class="modal-overlay" style="display:none">
+  <div class="modal-card modal-wide">
+    <button class="modal-close" id="signup-close" aria-label="Close">&#10005;</button>
+
+    <!-- Step 1: Personal info -->
+    <div id="signup-step-1">
+      <div class="modal-logo">&#9749; BrewIQ</div>
+      <h2>Create your account</h2>
+      <p class="modal-sub">Start analysing your coffee shop data in minutes</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="signup-name">Full name</label>
+          <input type="text" id="signup-name" placeholder="Jane Smith" autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="signup-phone">Phone <span style="font-weight:400;color:#9a8070">(optional)</span></label>
+          <input type="tel" id="signup-phone" placeholder="+1 555 000 0000" autocomplete="tel" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" placeholder="you@company.com" autocomplete="email" />
+      </div>
+      <div class="form-group">
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" placeholder="At least 8 characters" autocomplete="new-password" />
+      </div>
+      <p id="signup-error-1" class="form-error" style="display:none"></p>
+      <button class="btn btn-gold btn-full" id="signup-next">Continue &rarr;</button>
+      <p class="modal-switch">Already have an account? <a id="switch-to-login">Log in</a></p>
+    </div>
+
+    <!-- Step 2: Tier selection -->
+    <div id="signup-step-2" style="display:none">
+      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.75rem;color:#2C1810;margin-bottom:6px">Choose your plan</h2>
+      <p class="modal-sub">All plans include the core analytics suite. Upgrade any time.</p>
+      <div class="tier-cards">
+
+        <!-- Free -->
+        <div class="tier-card" data-tier="free">
+          <p class="tier-name">Free</p>
+          <div class="tier-price">$0 <span>/ mo</span></div>
+          <p class="tier-note">No credit card needed</p>
+          <hr class="tier-divider">
+          <ul class="tier-features">
+            <li>500 row upload limit</li>
+            <li>Data kept for 14 days</li>
+            <li>Basic analytics &amp; queries</li>
+            <li>AI question answering</li>
+          </ul>
+          <button class="btn btn-outline btn-full tier-select-btn">Get started free</button>
+        </div>
+
+        <!-- Free Trial (highlighted) -->
+        <div class="tier-card tier-card--highlight" data-tier="trial">
+          <div class="tier-badge-top">Most Popular</div>
+          <p class="tier-name" style="margin-top:10px">Free Trial</p>
+          <div class="tier-price">$0 <span>for 2 weeks</span></div>
+          <p class="tier-note">then $49/mo &nbsp;&middot;&nbsp; No credit card for trial</p>
+          <hr class="tier-divider">
+          <ul class="tier-features">
+            <li>5,000 row upload limit</li>
+            <li>Data kept for 30 days</li>
+            <li>Full AI query suite</li>
+            <li>Revenue &amp; trend insights</li>
+            <li>Priority support</li>
+          </ul>
+          <button class="btn btn-gold btn-full tier-select-btn">Start free trial</button>
+        </div>
+
+        <!-- Premium -->
+        <div class="tier-card" data-tier="premium">
+          <p class="tier-name">Premium</p>
+          <div class="tier-price">$49 <span>/ mo</span></div>
+          <p class="tier-note">Billed monthly, cancel any time</p>
+          <hr class="tier-divider">
+          <ul class="tier-features">
+            <li>Unlimited uploads</li>
+            <li>Data kept forever</li>
+            <li>Full AI query suite</li>
+            <li>All analytics features</li>
+            <li>Priority support</li>
+            <li>Early access to new features</li>
+          </ul>
+          <button class="btn btn-outline btn-full tier-select-btn">Go Premium</button>
+        </div>
+
+      </div>
+      <p id="signup-error-2" class="form-error" style="display:none;margin-top:12px;text-align:center"></p>
+      <p style="text-align:center;margin-top:14px;font-size:0.8rem;color:#9a8070">
+        <a id="signup-back" style="cursor:pointer;color:#8B5E3C">&#8592; Back</a>
+      </p>
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>

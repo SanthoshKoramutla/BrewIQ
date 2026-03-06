@@ -1483,6 +1483,7 @@
 
 
 <script>
+document.addEventListener('DOMContentLoaded', () => {
   // =============================================
   // SCROLL-IN ANIMATIONS
   // =============================================
@@ -1723,9 +1724,16 @@
       btn.disabled = false; btn.textContent = origText;
       hideModal('signup'); resetSignup();
 
-      // If email confirmation is required, show a friendly note
+      // If email confirmation is required, show in-modal message
       if (!data.session) {
-        alert('Account created! Please check your email (' + email + ') to confirm your account, then log in.');
+        document.getElementById('signup-step-2').innerHTML = `
+          <div style="text-align:center;padding:40px 20px">
+            <div style="font-size:2.5rem;margin-bottom:16px">📬</div>
+            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;color:#2C1810;margin-bottom:12px">Check your email</h2>
+            <p style="color:#6B4C35;margin-bottom:8px">We sent a confirmation link to<br><strong>${escHtml(email)}</strong></p>
+            <p style="color:#6B4C35;font-size:0.875rem;margin-bottom:24px">Click the link in the email, then come back here and log in.</p>
+            <button class="btn btn-gold btn-full" onclick="document.getElementById('modal-signup').style.display='none'">OK, got it</button>
+          </div>`;
       }
     };
   });
@@ -1795,8 +1803,12 @@
               ${data.is_duplicate ? ' &nbsp;&middot;&nbsp; <span style="color:#E07070">Duplicate detected</span>' : ''}
             </p>
           </div>`;
+      } else if (data.status === 'accepted') {
+        uploadResult.innerHTML = `<p class="status-msg success">&#10003; ${escHtml(data.message || 'File received — rows are being processed in the background.')}</p>`;
       } else if (data.status === 'success') {
-        uploadResult.innerHTML = `<p class="status-msg success">&#10003; ${escHtml(data.filename)} — ${escHtml(String(data.valid_rows))} rows imported.</p>`;
+        uploadResult.innerHTML = `<p class="status-msg success">&#10003; ${escHtml(data.filename || 'File')} — ${escHtml(String(data.valid_rows))} rows imported.</p>`;
+      } else if (data.status === 'failed') {
+        uploadResult.innerHTML = `<p class="status-msg error">&#10007; ${escHtml(data.error || 'Upload failed.')}</p>`;
       } else {
         uploadResult.innerHTML = `<p class="status-msg error">&#10007; Unexpected response from server.</p>`;
       }
@@ -1906,6 +1918,7 @@
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
   }
+}); // end DOMContentLoaded
 </script>
 
 <!-- ============================================================

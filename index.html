@@ -1787,7 +1787,14 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { 'Authorization': `Bearer ${getActiveSession().access_token}` },
         body: fd
       });
-      const data = await res.json();
+      const text = await res.text();
+      if (!text.trim()) {
+        uploadResult.innerHTML = `<p class="status-msg success">&#10003; File received — processing in the background.</p>`;
+        uploadBtn.disabled = false;
+        uploadBtn.textContent = 'Upload File';
+        return;
+      }
+      const data = JSON.parse(text);
 
       if (data.status === 'rate_limited') {
         uploadResult.innerHTML = `<p class="status-msg error">&#10007; Upload limit reached (${data.current_count}/${data.limit} rows). <a href="#auth-panel" style="color:var(--gold)">Sign in</a> to get a free account with more quota.</p>`;

@@ -1210,7 +1210,7 @@
       <button class="btn btn-gold btn-xs" id="demo-banner-signup">Sign up free &rarr;</button>
     </div>
 
-    <div class="try-grid" id="try-grid" style="display:none">
+    <div class="try-grid" id="try-grid" style="display:grid">
 
       <!-- Panel A: Upload -->
       <div class="try-panel fade-up">
@@ -1661,7 +1661,14 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.disabled = true; btn.textContent = 'Signing in…';
     const { error } = await sb.auth.signInWithPassword({ email, password });
     btn.disabled = false; btn.textContent = 'Log In';
-    if (error) { showError('login-error', error.message); }
+    if (error) {
+      const msg = error.message.toLowerCase();
+      if (msg.includes('not confirmed') || msg.includes('email confirmation')) {
+        showError('login-error', 'Please confirm your email first — check your inbox for a link from BrewIQ.');
+      } else {
+        showError('login-error', 'Incorrect email or password. Please try again.');
+      }
+    }
     else { hideModal('login'); }
   };
 

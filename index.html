@@ -1282,7 +1282,6 @@
             autocorrect="off"
             autocapitalize="off"
             spellcheck="false"
-            readonly
             placeholder="e.g. What's my best selling product this month?"
           >
           <button id="query-btn" title="Ask">
@@ -1876,7 +1875,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const value = queryInput.value.trim();
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) queryInput.value = '';
   }
-  queryInput.addEventListener('focus', () => queryInput.removeAttribute('readonly'));
   queryInput.addEventListener('input', clearQuestionAutofill);
   [200, 800, 1600].forEach(ms => setTimeout(clearQuestionAutofill, ms));
 

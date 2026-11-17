@@ -792,6 +792,14 @@
     }
     .query-input::placeholder { color: var(--text-muted); }
     .query-input:focus { outline: none; border-color: var(--gold); }
+    .query-input:-webkit-autofill,
+    .query-input:-webkit-autofill:hover,
+    .query-input:-webkit-autofill:focus {
+      -webkit-text-fill-color: var(--text-light);
+      caret-color: var(--text-light);
+      box-shadow: 0 0 0 1000px #4A2E1C inset;
+      transition: background-color 99999s ease-out;
+    }
     #query-btn {
       width: 44px; height: 44px; flex-shrink: 0;
       border-radius: 8px; background: var(--gold);
@@ -1264,10 +1272,17 @@
         </div>
 
         <div class="query-input-row">
+          <input type="text" tabindex="-1" aria-hidden="true" autocomplete="email" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <input
             id="query-input"
             class="query-input"
             type="text"
+            name="brewiq-question"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            readonly
             placeholder="e.g. What's my best selling product this month?"
           >
           <button id="query-btn" title="Ask">
@@ -1610,6 +1625,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const info = document.getElementById('nav-user-info');
     info.style.display = 'flex';
     document.getElementById('nav-user-pill').textContent = '✦ ' + session.user.email;
+    clearQuestionAutofill();
+    setTimeout(clearQuestionAutofill, 400);
   }
 
   function handleAuthSignOut() {
@@ -1854,6 +1871,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const queryInput  = document.getElementById('query-input');
   const queryBtn    = document.getElementById('query-btn');
   const queryResult = document.getElementById('query-result');
+
+  function clearQuestionAutofill() {
+    const value = queryInput.value.trim();
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) queryInput.value = '';
+  }
+  queryInput.addEventListener('focus', () => queryInput.removeAttribute('readonly'));
+  queryInput.addEventListener('input', clearQuestionAutofill);
+  [200, 800, 1600].forEach(ms => setTimeout(clearQuestionAutofill, ms));
 
   document.querySelectorAll('.quick-btn').forEach(btn => {
     btn.addEventListener('click', () => {

@@ -3,27 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BrewIQ — AI-powered analytics for coffee shop owners. Upload your POS data and invoices, ask questions in plain English, get instant insights.">
-  <title>BrewIQ — AI Analytics for Coffee Shops | by Dhinova AI</title>
+  <meta name="description" content="BrewIQ is a sample coffee-shop desk. Open the sample shop, ask four sales questions, or upload a sales CSV on your own account.">
+  <title>BrewIQ — a sample coffee-shop desk | by Dhinova AI</title>
   <!-- Open Graph (also read by X) -->
   <meta property="og:type"         content="website" />
   <meta property="og:url"          content="https://brew.dhinovaai.com/" />
-  <meta property="og:title"        content="BrewIQ — AI Analytics for Coffee Shops" />
-  <meta property="og:description"  content="Upload your POS data and invoices, ask questions in plain English, get instant insights. No dashboards. No SQL." />
+  <meta property="og:title"        content="BrewIQ — a sample coffee-shop desk" />
+  <meta property="og:description"  content="Open the sample shop and ask four sales questions. A sales CSV can be uploaded on your own account. Supplier PDFs are not read." />
   <meta property="og:image"        content="https://brew.dhinovaai.com/og-image.png" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="628" />
   <!-- X (Twitter) Card -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:site"        content="@dhinovaai" />
-  <meta name="twitter:title"       content="BrewIQ — AI Analytics for Coffee Shops" />
-  <meta name="twitter:description" content="Upload your POS data and invoices, ask questions in plain English, get instant insights. No dashboards. No SQL." />
+  <meta name="twitter:title"       content="BrewIQ — a sample coffee-shop desk" />
+  <meta name="twitter:description" content="Open the sample shop and ask four sales questions. A sales CSV can be uploaded on your own account. Supplier PDFs are not read." />
   <meta name="twitter:image"       content="https://brew.dhinovaai.com/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     /* ========================================
@@ -1025,8 +1023,8 @@
     </div>
     <div class="nav-actions" id="nav-guest-actions">
       <button class="btn btn-ghost btn-sm" id="nav-login-btn">Log In</button>
-      <button class="btn btn-outline btn-sm" id="nav-signup-btn">Sign Up Free</button>
-      <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhinova-ai/new-meeting-1'});return false;" class="btn btn-gold btn-sm">Request Demo</a>
+      <button class="btn btn-outline btn-sm" id="nav-signup-btn">Create account</button>
+      <a href="#try-it-live" class="btn btn-gold btn-sm">Open the sample</a>
     </div>
     <div class="nav-user-info" id="nav-user-info" style="display:none">
       <span class="nav-user-pill" id="nav-user-pill"></span>
@@ -1046,21 +1044,22 @@
       <!-- Text column -->
       <div>
         <div class="hero-eyebrow">
-          <span class="badge badge-gold badge-dot">Now in Beta — Limited Early Access</span>
+          <span class="badge badge-gold badge-dot">Sample desk</span>
         </div>
         <h1 class="hero-title">
-          Your Coffee Shop,<br>
-          Run <span class="gold">Smarter.</span>
+          A sample coffee-shop<br>
+          <span class="gold">desk.</span>
         </h1>
         <p class="hero-subtitle">
-          Upload your invoices and POS sales data. Ask questions in plain English.
-          Get instant insights on revenue, products, and spending — powered by AI.
+          The sample login opens the sample shop. Four questions run on that shop:
+          top products, revenue by store, daily revenue, and spending.
+          A sales CSV in the required columns can be uploaded on your own account.
         </p>
         <div class="hero-ctas">
-          <a href="#demo" class="btn btn-gold btn-lg">Book a Free Demo</a>
-          <a href="#how-it-works" class="btn btn-outline btn-lg">See How It Works</a>
+          <a href="#try-it-live" class="btn btn-gold btn-lg">Open the sample shop</a>
+          <a href="#how-it-works" class="btn btn-outline btn-lg">See what it does</a>
         </div>
-        <p class="hero-proof">$81,677.74 in real sales already analyzed across 3 stores</p>
+        <p class="hero-proof">Supplier PDFs are not read. A new price is not compared with the last one.</p>
       </div>
 
       <!-- Chat widget -->
@@ -1074,24 +1073,19 @@
           <div class="chat-body">
             <div class="msg user">
               <div class="avatar">You</div>
-              <div class="bubble">What were my top 5 products this month?</div>
+              <div class="bubble">Top products</div>
             </div>
             <div class="msg bot">
               <div class="avatar">IQ</div>
               <div class="bubble">
-                Here are your top products by revenue:
+                The sample shop answers these four:
                 <ul class="product-list">
-                  <li><span><span class="rank">1.</span> Oat Milk Latte</span>    <span class="amt">$4,821</span></li>
-                  <li><span><span class="rank">2.</span> Cold Brew Classic</span> <span class="amt">$3,940</span></li>
-                  <li><span><span class="rank">3.</span> Avocado Toast</span>     <span class="amt">$2,105</span></li>
-                  <li><span><span class="rank">4.</span> Espresso Tonic</span>    <span class="amt">$1,876</span></li>
-                  <li><span><span class="rank">5.</span> Matcha Latte</span>      <span class="amt">$1,640</span></li>
+                  <li><span>Top products</span></li>
+                  <li><span>Revenue by store</span></li>
+                  <li><span>Daily revenue</span></li>
+                  <li><span>Spending trends</span></li>
                 </ul>
               </div>
-            </div>
-            <div class="msg user">
-              <div class="avatar">You</div>
-              <div class="bubble">How does Store 2 compare to Store 1?</div>
             </div>
           </div>
           <div class="chat-footer">
@@ -1117,9 +1111,9 @@
 <section class="problem section" id="problem">
   <div class="container">
     <div class="section-header">
-      <p class="section-label">The Problem</p>
-      <h2 class="section-title">Running a coffee shop<br>shouldn't feel like guessing.</h2>
-      <p class="section-subtitle">You know your shop better than anyone. But without the right tools, data sits untouched — and decisions get made on instinct.</p>
+      <p class="section-label">What this is</p>
+      <h2 class="section-title">A desk you can open,<br>with a sample shop.</h2>
+      <p class="section-subtitle">The questions below run on the sample shop. A sales file you upload is stored on the account you create.</p>
     </div>
 
     <div class="problem-grid">
@@ -1132,8 +1126,8 @@
             <line x1="16" y1="17" x2="8" y2="17"></line>
           </svg>
         </div>
-        <h3>Invoice chaos</h3>
-        <p>Manually tracking supplier invoices means errors, missed price changes, and hours wasted every week entering the same data into spreadsheets.</p>
+        <h3>Sample shop</h3>
+        <p>The page signs you into a sample shop. Top products, revenue by store, daily revenue, and spending all read that shop.</p>
       </div>
 
       <div class="problem-card fade-up">
@@ -1145,8 +1139,8 @@
             <line x1="9" y1="9" x2="9" y2="21"></line>
           </svg>
         </div>
-        <h3>POS data sitting idle</h3>
-        <p>Your POS exports CSVs every day, but turning those rows into business decisions takes data skills you don't have time — or staff — for.</p>
+        <h3>Sales CSV</h3>
+        <p>Your own account can take a sales CSV or TSV. The date column has to be M/D/YYYY, and the file needs the columns listed in the upload box.</p>
       </div>
 
       <div class="problem-card fade-up">
@@ -1157,12 +1151,12 @@
             <line x1="12" y1="16" x2="12.01" y2="16" stroke-width="3"></line>
           </svg>
         </div>
-        <h3>No clear picture</h3>
-        <p>Which products drive profit? Which store is underperforming? Without answers, you operate on gut feeling — and gut feeling doesn't scale.</p>
+        <h3>Invoices</h3>
+        <p>A supplier PDF is not read. Nothing on this desk compares a new unit price with the previous one.</p>
       </div>
     </div>
 
-    <p class="problem-bridge fade-up">BrewIQ changes all of this — in <span class="gold">minutes</span>, not months.</p>
+    <p class="problem-bridge fade-up">Open the sample shop and ask one of the four questions.</p>
   </div>
 </section>
 
@@ -1174,8 +1168,8 @@
   <div class="container">
     <div class="section-header">
       <p class="section-label">How It Works</p>
-      <h2 class="section-title">Three steps. Instant clarity.</h2>
-      <p class="section-subtitle">Powered by the same AI that runs enterprise analytics — built specifically for independent coffee shop owners.</p>
+      <h2 class="section-title">Three things it does.</h2>
+      <p class="section-subtitle">The sample shop is already loaded. A typed question is answered when it matches one of the four.</p>
     </div>
 
     <div class="steps-wrap">
@@ -1184,22 +1178,20 @@
 
         <div class="step-card fade-up">
           <div class="step-num">01</div>
-          <h3>Upload Your Data</h3>
-          <p>Drop in PDF invoices from your suppliers and CSV exports from your POS system. BrewIQ accepts any format — no template required.</p>
-          <span class="endpoint">POST /webhook/upload</span>
+          <h3>Open the sample shop</h3>
+          <p>The try-it panel below is already on the sample shop. You can ask without creating an account.</p>
         </div>
 
         <div class="step-card fade-up">
           <div class="step-num">02</div>
-          <h3>AI Processes Everything</h3>
-          <p>Claude AI reads your invoices, extracts every line item, detects duplicates, and structures your data cleanly — even when supplier formats change.</p>
+          <h3>Ask one of four questions</h3>
+          <p>Top products, revenue by store, daily revenue, and spending. Other wording is answered only when it matches one of those.</p>
         </div>
 
         <div class="step-card fade-up">
           <div class="step-num">03</div>
-          <h3>Ask in Plain English</h3>
-          <p>Type "What were my top products last month?" or "Show me spending trends across stores." BrewIQ converts your question to an instant answer.</p>
-          <span class="endpoint">POST /webhook/query</span>
+          <h3>Upload a sales CSV</h3>
+          <p>Create an account, then upload a CSV or TSV with the required columns. Dates must be M/D/YYYY. The rows land on that account, not on the sample shop.</p>
         </div>
 
       </div>
@@ -1215,8 +1207,8 @@
   <div class="container">
     <div class="section-header">
       <p class="section-label">Try It Live</p>
-      <h2 class="section-title">See it work on real data.</h2>
-      <p class="section-subtitle">Upload an actual invoice or sales file, or ask a question. These connect directly to the live BrewIQ workflows.</p>
+      <h2 class="section-title">Ask the sample shop.</h2>
+      <p class="section-subtitle">The four buttons run on the sample shop. A typed question is answered when it matches one of them. A sales CSV belongs on an account you create.</p>
     </div>
 
     <!-- Auth status bar (shown after login) -->
@@ -1228,7 +1220,7 @@
 
     <!-- Demo banner -->
     <div id="demo-banner">
-      <span>&#9889; <strong>You're exploring with sample data.</strong> Uploads are limited to 200 rows and cleared every 3 days.</span>
+      <span>&#9889; <strong>You're on the sample shop.</strong> The four questions use this shop. A sales CSV goes on an account you create.</span>
       <button class="btn btn-gold btn-xs" id="demo-banner-signup">Sign up free &rarr;</button>
     </div>
 
@@ -1237,9 +1229,9 @@
       <!-- Panel A: Upload -->
       <div class="try-panel fade-up">
         <p class="try-panel-title">Upload Your Data</p>
-        <p class="try-panel-sub">Drop in a PDF invoice or CSV sales export. BrewIQ processes it instantly.</p>
+        <p class="try-panel-sub">A sales CSV or TSV, on an account you create. Dates must be M/D/YYYY. Required columns: transaction_id, transaction_date, transaction_time, transaction_qty, store_id, store_location, product_id, unit_price, product_category, product_type, product_detail.</p>
 
-        <input type="file" id="file-input" accept=".pdf,.csv,.tsv" style="display:none">
+        <input type="file" id="file-input" accept=".csv,.tsv" style="display:none">
 
         <div class="drop-zone" id="drop-zone">
           <svg class="drop-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1248,7 +1240,7 @@
             <line x1="12" y1="3" x2="12" y2="15"></line>
           </svg>
           <p class="drop-label">Drag & drop a file here</p>
-          <p class="drop-hint">or click to browse &nbsp;·&nbsp; .pdf invoices &nbsp;·&nbsp; .csv sales</p>
+          <p class="drop-hint">or click to browse &nbsp;·&nbsp; .csv or .tsv sales &nbsp;·&nbsp; supplier PDFs are not read</p>
         </div>
 
         <div class="upload-actions">
@@ -1262,7 +1254,7 @@
       <!-- Panel B: Chat -->
       <div class="try-panel fade-up">
         <p class="try-panel-title">Ask a Question</p>
-        <p class="try-panel-sub">Use a quick template or type any question about the coffee shop data.</p>
+        <p class="try-panel-sub">These four run on the sample shop. A typed question is answered only when it matches one of them.</p>
 
         <div class="quick-btns">
           <button class="quick-btn" data-template="top_products">Top Products</button>
@@ -1282,7 +1274,7 @@
             autocorrect="off"
             autocapitalize="off"
             spellcheck="false"
-            placeholder="e.g. What's my best selling product this month?"
+            placeholder="e.g. best selling products"
           >
           <button id="query-btn" title="Ask">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C1810" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1306,31 +1298,31 @@
 <section class="metrics section" id="results">
   <div class="container">
     <div class="section-header">
-      <p class="section-label">Real Results</p>
-      <h2 class="section-title">Real data. Real results.</h2>
-      <p class="section-subtitle">BrewIQ has already processed live sales data from independent coffee shops — not demos, not synthetic data.</p>
+      <p class="section-label">Sample shop</p>
+      <h2 class="section-title">What the sample shop holds.</h2>
+      <p class="section-subtitle">These figures are the sample shop on this page. They are not a customer’s results.</p>
     </div>
 
     <div class="metrics-grid">
       <div class="metric-card fade-up">
         <div class="metric-num" id="m-revenue">$0</div>
-        <div class="metric-lbl">Revenue Analyzed</div>
+        <div class="metric-lbl">Sample revenue</div>
       </div>
       <div class="metric-card fade-up">
         <div class="metric-num" id="m-txn">0</div>
-        <div class="metric-lbl">Transactions Processed</div>
+        <div class="metric-lbl">Sample transactions</div>
       </div>
       <div class="metric-card fade-up">
         <div class="metric-num" id="m-stores">0</div>
-        <div class="metric-lbl">Stores Tracked</div>
+        <div class="metric-lbl">Sample stores</div>
       </div>
       <div class="metric-card fade-up">
         <div class="metric-num" id="m-products">0</div>
-        <div class="metric-lbl">Products Indexed</div>
+        <div class="metric-lbl">Sample products</div>
       </div>
     </div>
 
-    <p class="metrics-note">100% query accuracy on live test suite. All figures from real coffee shop operations.</p>
+    <p class="metrics-note">Counted from the sample shop. A question does not change these totals.</p>
   </div>
 </section>
 
@@ -1342,8 +1334,8 @@
   <div class="container">
     <div class="section-header">
       <p class="section-label">Features</p>
-      <h2 class="section-title">Everything your coffee shop<br>needs to operate on data.</h2>
-      <p class="section-subtitle">Purpose-built for independent owners — not for enterprise data teams with six-figure budgets.</p>
+      <h2 class="section-title">What you can do here.</h2>
+      <p class="section-subtitle">Four sales questions, a sample shop, and a sales CSV on your own account.</p>
     </div>
 
     <div class="features-grid">
@@ -1353,8 +1345,8 @@
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
           </svg>
         </div>
-        <h3>Natural Language Queries</h3>
-        <p>Ask anything about your business in plain English. No SQL, no spreadsheets, no data analyst required.</p>
+        <h3>Four questions</h3>
+        <p>Top products, revenue by store, daily revenue, and spending. A typed question is answered when the words match one of those.</p>
       </div>
 
       <div class="feat-card fade-up">
@@ -1363,8 +1355,8 @@
             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
           </svg>
         </div>
-        <h3>Invoice Intelligence</h3>
-        <p>Upload supplier PDFs in any format. AI extracts vendor, items, quantities, and prices automatically — and flags price changes.</p>
+        <h3>Supplier PDFs</h3>
+        <p>A supplier PDF is not read. The model account that would read one has no credits.</p>
       </div>
 
       <div class="feat-card fade-up">
@@ -1374,8 +1366,8 @@
             <line x1="2" y1="10" x2="22" y2="10"></line>
           </svg>
         </div>
-        <h3>POS Data Integration</h3>
-        <p>Drop in CSV or TSV exports from your POS system. Automatic validation, deduplication, and structured storage every time.</p>
+        <h3>Sales CSV</h3>
+        <p>CSV or TSV only, with the columns listed in the upload box. The date has to be M/D/YYYY.</p>
       </div>
 
       <div class="feat-card fade-up">
@@ -1386,8 +1378,8 @@
             <line x1="6"  y1="20" x2="6"  y2="14"></line>
           </svg>
         </div>
-        <h3>Pre-Built Analytics</h3>
-        <p>Top products, spending trends, revenue by store, daily revenue — one click away. No query writing, no configuration.</p>
+        <h3>Sample shop</h3>
+        <p>The four buttons answer from the sample shop until you sign in with your own account.</p>
       </div>
 
       <div class="feat-card fade-up">
@@ -1397,8 +1389,8 @@
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
         </div>
-        <h3>Multi-Store Support</h3>
-        <p>Track revenue, costs, and product performance across all your locations from a single unified view.</p>
+        <h3>Revenue by store</h3>
+        <p>That question groups the sales file by the store column. It does not connect to a POS.</p>
       </div>
 
       <div class="feat-card fade-up">
@@ -1408,8 +1400,8 @@
             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
           </svg>
         </div>
-        <h3>Secure Cloud Storage</h3>
-        <p>All your data is stored securely in a dedicated Supabase instance with row-level security. Your data stays yours.</p>
+        <h3>Price changes</h3>
+        <p>Nothing here compares a new unit price with the last one, and nothing sends an alert when a supplier price moves.</p>
       </div>
     </div>
   </div>
@@ -1421,10 +1413,9 @@
 ============================================================ -->
 <section class="beta">
   <div class="container">
-    <span class="badge badge-gold">BETA</span>
-    <h2>BrewIQ is in early access.</h2>
-    <p>We're working with a small group of coffee shop owners to refine the product. Spots are limited — join now to shape what we build next.</p>
-    <p class="note">Early access members receive founding member pricing when we launch.</p>
+    <span class="badge badge-gold">Sample</span>
+    <h2>This page is the sample desk.</h2>
+    <p>Open it and ask the four questions. There is no founding price, and no demo that connects a shop’s own till.</p>
   </div>
 </section>
 
@@ -1435,33 +1426,15 @@
 <section class="cta-sec" id="demo">
   <div class="container">
     <div class="cta-inner">
-      <h2>Ready to run your shop smarter?</h2>
-      <p>Book a free 20-minute demo. We'll connect BrewIQ to your actual data and show you exactly what it can find.</p>
-      <a
-        href=""
-        onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhinova-ai/new-meeting-1'});return false;"
-        class="btn btn-gold btn-lg"
-      >
-        Book Your Free Demo
+      <h2>Open the sample shop.</h2>
+      <p>Ask top products, revenue by store, daily revenue, or spending. Create an account only if you want to upload a sales CSV.</p>
+      <a href="#try-it-live" class="btn btn-gold btn-lg">
+        Go to the questions
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </a>
-      <div class="trust-row">
-        <span class="trust-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Free for early access
-        </span>
-        <span class="trust-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-          No spam, ever
-        </span>
-        <span class="trust-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-          Pick a time that works for you
-        </span>
-      </div>
     </div>
   </div>
 </section>
@@ -1483,7 +1456,7 @@
           <span>BrewIQ</span>
         </div>
         <p class="footer-sub">by Dhinova AI</p>
-        <p class="footer-desc">AI-powered analytics for independent coffee shop owners. Upload your data. Ask questions. Run smarter.</p>
+        <p class="footer-desc">A sample coffee-shop desk. Four sales questions on the sample shop, and a sales CSV on your own account.</p>
       </div>
       <div>
         <p class="footer-col-title">Product</p>
@@ -1491,7 +1464,7 @@
           <li><a href="#how-it-works">How It Works</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#results">Results</a></li>
-          <li><a href="#demo">Early Access</a></li>
+          <li><a href="#try-it-live">Sample shop</a></li>
         </ul>
       </div>
       <div>
@@ -1504,7 +1477,7 @@
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 Dhinova AI. All rights reserved.</span>
-      <span class="footer-credit">Powered by <a href="https://anthropic.com" target="_blank" rel="noopener">Claude AI by Anthropic</a></span>
+      <span class="footer-credit">A sample by <a href="https://www.dhinovaai.com" target="_blank" rel="noopener">Dhinova AI</a></span>
     </div>
   </div>
 </footer>
@@ -1802,10 +1775,21 @@ document.addEventListener('DOMContentLoaded', () => {
   fileInput.addEventListener('change', () => { if (fileInput.files[0]) pickFile(fileInput.files[0]); });
 
   function pickFile(f) {
+    const name = f.name.toLowerCase();
+    if (!name.endsWith('.csv') && !name.endsWith('.tsv')) {
+      selectedFile = null;
+      uploadBtn.disabled = true;
+      dropZone.querySelector('.drop-label').textContent = 'Drag & drop a file here';
+      fileLabel.textContent = 'No file selected';
+      uploadResult.style.display = 'block';
+      uploadResult.innerHTML = '<p class="status-msg error">&#10007; Supplier PDFs are not read. Upload a sales CSV or TSV with the required columns.</p>';
+      return;
+    }
     selectedFile = f;
     dropZone.querySelector('.drop-label').textContent = f.name;
     fileLabel.textContent = f.name;
     uploadBtn.disabled = false;
+    uploadResult.style.display = 'none';
   }
 
   uploadBtn.addEventListener('click', async () => {
@@ -1834,7 +1818,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = JSON.parse(text);
 
       if (data.status === 'rate_limited') {
-        uploadResult.innerHTML = `<p class="status-msg error">&#10007; Upload limit reached (${data.current_count}/${data.limit} rows). <a href="#auth-panel" style="color:var(--gold)">Sign in</a> to get a free account with more quota.</p>`;
+        uploadResult.innerHTML = `<p class="status-msg error">&#10007; This shop is at its upload limit (${data.current_count}/${data.limit} rows). Create an account to upload a sales CSV on that account.</p>`;
       } else if (data.type === 'invoice') {
         uploadResult.innerHTML = `
           <p class="status-msg success">&#10003; Invoice processed successfully</p>
@@ -2006,7 +1990,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div id="signup-step-1">
       <div class="modal-logo">&#9749; BrewIQ</div>
       <h2>Create your account</h2>
-      <p class="modal-sub">Start analysing your coffee shop data in minutes</p>
+      <p class="modal-sub">An account can take a sales CSV. The sample shop does not need one.</p>
       <div class="form-row">
         <div class="form-group">
           <label for="signup-name">Full name</label>
@@ -2032,59 +2016,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- Step 2: Tier selection -->
     <div id="signup-step-2" style="display:none">
-      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.75rem;color:#2C1810;margin-bottom:6px">Choose your plan</h2>
-      <p class="modal-sub">All plans include the core analytics suite. Upgrade any time.</p>
+      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.75rem;color:#2C1810;margin-bottom:6px">Create the account</h2>
+      <p class="modal-sub">No charge. The account can take a sales CSV with the required columns.</p>
       <div class="tier-cards">
-
-        <!-- Free -->
         <div class="tier-card" data-tier="free">
-          <p class="tier-name">Free</p>
-          <div class="tier-price">$0 <span>/ mo</span></div>
-          <p class="tier-note">No credit card needed</p>
-          <hr class="tier-divider">
-          <ul class="tier-features">
-            <li>500 row upload limit</li>
-            <li>Data kept for 14 days</li>
-            <li>Basic analytics &amp; queries</li>
-            <li>AI question answering</li>
-          </ul>
-          <button class="btn btn-outline btn-full tier-select-btn">Get started free</button>
+          <p class="tier-name">Account</p>
+          <p class="tier-note">Sales CSV or TSV only. Supplier PDFs are not read.</p>
+          <button class="btn btn-gold btn-full tier-select-btn">Create account</button>
         </div>
-
-        <!-- Free Trial (highlighted) -->
-        <div class="tier-card tier-card--highlight" data-tier="trial">
-          <div class="tier-badge-top">Most Popular</div>
-          <p class="tier-name" style="margin-top:10px">Free Trial</p>
-          <div class="tier-price">$0 <span>for 2 weeks</span></div>
-          <p class="tier-note">then $49/mo &nbsp;&middot;&nbsp; No credit card for trial</p>
-          <hr class="tier-divider">
-          <ul class="tier-features">
-            <li>5,000 row upload limit</li>
-            <li>Data kept for 30 days</li>
-            <li>Full AI query suite</li>
-            <li>Revenue &amp; trend insights</li>
-            <li>Priority support</li>
-          </ul>
-          <button class="btn btn-gold btn-full tier-select-btn">Start free trial</button>
-        </div>
-
-        <!-- Premium -->
-        <div class="tier-card" data-tier="premium">
-          <p class="tier-name">Premium</p>
-          <div class="tier-price">$49 <span>/ mo</span></div>
-          <p class="tier-note">Billed monthly, cancel any time</p>
-          <hr class="tier-divider">
-          <ul class="tier-features">
-            <li>Unlimited uploads</li>
-            <li>Data kept forever</li>
-            <li>Full AI query suite</li>
-            <li>All analytics features</li>
-            <li>Priority support</li>
-            <li>Early access to new features</li>
-          </ul>
-          <button class="btn btn-outline btn-full tier-select-btn">Go Premium</button>
-        </div>
-
       </div>
       <p id="signup-error-2" class="form-error" style="display:none;margin-top:12px;text-align:center"></p>
       <p style="text-align:center;margin-top:14px;font-size:0.8rem;color:#9a8070">

@@ -1936,8 +1936,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         html += '</tbody></table>';
         html += `<p class="result-row-count">${data.row_count} row${data.row_count !== 1 ? 's' : ''}</p>`;
-      } else {
-        html += `<p class="status-msg" style="margin-top:12px">${escHtml(data.key_takeaway || 'No data found for this query.')}</p>`;
+      } else if (!data.key_takeaway) {
+        html += '<p class="status-msg" style="margin-top:12px">No data found for this query.</p>';
       }
 
       queryResult.innerHTML = html;

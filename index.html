@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BrewIQ is a sample coffee-shop desk. Open the sample shop, ask four sales questions, or upload a sales CSV on your own account.">
+  <meta name="description" content="BrewIQ is a sample coffee-shop desk. Open the sample shop, ask four sales questions, or check whether the same supplier item changed price.">
   <title>BrewIQ — a sample coffee-shop desk | by Dhinova AI</title>
   <!-- Open Graph (also read by X) -->
   <meta property="og:type"         content="website" />
   <meta property="og:url"          content="https://brew.dhinovaai.com/" />
   <meta property="og:title"        content="BrewIQ — a sample coffee-shop desk" />
-  <meta property="og:description"  content="Open the sample shop and ask four sales questions. A sales CSV can be uploaded on your own account. Supplier PDFs are not read." />
+  <meta property="og:description"  content="Open the sample shop and ask four sales questions, or check a supplier price change. A new PDF is not read." />
   <meta property="og:image"        content="https://brew.dhinovaai.com/og-image.png" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="628" />
@@ -17,7 +17,7 @@
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:site"        content="@dhinovaai" />
   <meta name="twitter:title"       content="BrewIQ — a sample coffee-shop desk" />
-  <meta name="twitter:description" content="Open the sample shop and ask four sales questions. A sales CSV can be uploaded on your own account. Supplier PDFs are not read." />
+  <meta name="twitter:description" content="Open the sample shop and ask four sales questions, or check a supplier price change. A new PDF is not read." />
   <meta name="twitter:image"       content="https://brew.dhinovaai.com/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1051,15 +1051,14 @@
           <span class="gold">desk.</span>
         </h1>
         <p class="hero-subtitle">
-          The sample login opens the sample shop. Four questions run on that shop:
-          top products, revenue by store, daily revenue, and spending.
-          A sales CSV in the required columns can be uploaded on your own account.
+          The sample login opens the sample shop. Four sales questions run on that shop.
+          Price changes compares the same item from the same supplier on two stored invoices.
         </p>
         <div class="hero-ctas">
           <a href="#try-it-live" class="btn btn-gold btn-lg">Open the sample shop</a>
           <a href="#how-it-works" class="btn btn-outline btn-lg">See what it does</a>
         </div>
-        <p class="hero-proof">Supplier PDFs are not read. A new price is not compared with the last one.</p>
+        <p class="hero-proof">A new supplier PDF is not read. The check uses invoices already stored.</p>
       </div>
 
       <!-- Chat widget -->
@@ -1078,12 +1077,13 @@
             <div class="msg bot">
               <div class="avatar">IQ</div>
               <div class="bubble">
-                The sample shop answers these four:
+                The sample shop answers these:
                 <ul class="product-list">
                   <li><span>Top products</span></li>
                   <li><span>Revenue by store</span></li>
                   <li><span>Daily revenue</span></li>
                   <li><span>Spending trends</span></li>
+                  <li><span>Price changes</span></li>
                 </ul>
               </div>
             </div>
@@ -1127,7 +1127,7 @@
           </svg>
         </div>
         <h3>Sample shop</h3>
-        <p>The page signs you into a sample shop. Top products, revenue by store, daily revenue, and spending all read that shop.</p>
+        <p>The page signs you into a sample shop. Top products, revenue by store, daily revenue, and spending all read that shop. Price changes reads the invoices stored for it.</p>
       </div>
 
       <div class="problem-card fade-up">
@@ -1152,11 +1152,11 @@
           </svg>
         </div>
         <h3>Invoices</h3>
-        <p>A supplier PDF is not read. Nothing on this desk compares a new unit price with the previous one.</p>
+        <p>A new supplier PDF is not read. Price changes only compares invoices already stored, for the same item from the same supplier.</p>
       </div>
     </div>
 
-    <p class="problem-bridge fade-up">Open the sample shop and ask one of the four questions.</p>
+    <p class="problem-bridge fade-up">Open the sample shop and use one of the buttons.</p>
   </div>
 </section>
 
@@ -1169,7 +1169,7 @@
     <div class="section-header">
       <p class="section-label">How It Works</p>
       <h2 class="section-title">Three things it does.</h2>
-      <p class="section-subtitle">The sample shop is already loaded. A typed question is answered when it matches one of the four.</p>
+      <p class="section-subtitle">The sample shop is already loaded. A typed question is answered when it matches one of the buttons.</p>
     </div>
 
     <div class="steps-wrap">
@@ -1184,8 +1184,8 @@
 
         <div class="step-card fade-up">
           <div class="step-num">02</div>
-          <h3>Ask one of four questions</h3>
-          <p>Top products, revenue by store, daily revenue, and spending. Other wording is answered only when it matches one of those.</p>
+          <h3>Use a button</h3>
+          <p>Top products, revenue by store, daily revenue, spending, and price changes. Other wording is answered only when it matches one of those.</p>
         </div>
 
         <div class="step-card fade-up">
@@ -1208,7 +1208,7 @@
     <div class="section-header">
       <p class="section-label">Try It Live</p>
       <h2 class="section-title">Ask the sample shop.</h2>
-      <p class="section-subtitle">The four buttons run on the sample shop. A typed question is answered when it matches one of them. A sales CSV belongs on an account you create.</p>
+      <p class="section-subtitle">The buttons run on the sample shop. Price changes compares stored invoices. A sales CSV belongs on an account you create.</p>
     </div>
 
     <!-- Auth status bar (shown after login) -->
@@ -1220,7 +1220,7 @@
 
     <!-- Demo banner -->
     <div id="demo-banner">
-      <span>&#9889; <strong>You're on the sample shop.</strong> The four questions use this shop. A sales CSV goes on an account you create.</span>
+      <span>&#9889; <strong>You're on the sample shop.</strong> The buttons use this shop. A sales CSV goes on an account you create.</span>
       <button class="btn btn-gold btn-xs" id="demo-banner-signup">Sign up free &rarr;</button>
     </div>
 
@@ -1254,13 +1254,14 @@
       <!-- Panel B: Chat -->
       <div class="try-panel fade-up">
         <p class="try-panel-title">Ask a Question</p>
-        <p class="try-panel-sub">These four run on the sample shop. A typed question is answered only when it matches one of them.</p>
+        <p class="try-panel-sub">These run on the sample shop. A typed question is answered only when it matches one of them.</p>
 
         <div class="quick-btns">
           <button class="quick-btn" data-template="top_products">Top Products</button>
           <button class="quick-btn" data-template="revenue_by_store">Revenue by Store</button>
           <button class="quick-btn" data-template="daily_revenue">Daily Revenue</button>
           <button class="quick-btn" data-template="spending_trends">Spending Trends</button>
+          <button class="quick-btn" data-template="price_changes">Price Changes</button>
         </div>
 
         <div class="query-input-row">
@@ -1335,7 +1336,7 @@
     <div class="section-header">
       <p class="section-label">Features</p>
       <h2 class="section-title">What you can do here.</h2>
-      <p class="section-subtitle">Four sales questions, a sample shop, and a sales CSV on your own account.</p>
+      <p class="section-subtitle">Four sales questions, a price check on stored invoices, and a sales CSV on your own account.</p>
     </div>
 
     <div class="features-grid">
@@ -1345,8 +1346,8 @@
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
           </svg>
         </div>
-        <h3>Four questions</h3>
-        <p>Top products, revenue by store, daily revenue, and spending. A typed question is answered when the words match one of those.</p>
+        <h3>Listed questions</h3>
+        <p>Top products, revenue by store, daily revenue, spending, and price changes. A typed question is answered when the words match one of those.</p>
       </div>
 
       <div class="feat-card fade-up">
@@ -1379,7 +1380,7 @@
           </svg>
         </div>
         <h3>Sample shop</h3>
-        <p>The four buttons answer from the sample shop until you sign in with your own account.</p>
+        <p>The buttons answer from the sample shop until you sign in with your own account.</p>
       </div>
 
       <div class="feat-card fade-up">
@@ -1401,7 +1402,7 @@
           </svg>
         </div>
         <h3>Price changes</h3>
-        <p>Nothing here compares a new unit price with the last one, and nothing sends an alert when a supplier price moves.</p>
+        <p>The same item from the same supplier, on two stored invoices. It shows the earlier unit price, the later unit price, and the difference. It does not send an alert.</p>
       </div>
     </div>
   </div>
@@ -1415,7 +1416,7 @@
   <div class="container">
     <span class="badge badge-gold">Sample</span>
     <h2>This page is the sample desk.</h2>
-    <p>Open it and ask the four questions. There is no founding price, and no demo that connects a shop’s own till.</p>
+    <p>Open it and use the buttons. There is no founding price, and no demo that connects a shop’s own till.</p>
   </div>
 </section>
 
@@ -1427,7 +1428,7 @@
   <div class="container">
     <div class="cta-inner">
       <h2>Open the sample shop.</h2>
-      <p>Ask top products, revenue by store, daily revenue, or spending. Create an account only if you want to upload a sales CSV.</p>
+      <p>Ask the sales questions, or check price changes on stored invoices. Create an account only if you want to upload a sales CSV.</p>
       <a href="#try-it-live" class="btn btn-gold btn-lg">
         Go to the questions
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1456,7 +1457,7 @@
           <span>BrewIQ</span>
         </div>
         <p class="footer-sub">by Dhinova AI</p>
-        <p class="footer-desc">A sample coffee-shop desk. Four sales questions on the sample shop, and a sales CSV on your own account.</p>
+        <p class="footer-desc">A sample coffee-shop desk. Sales questions on the sample shop, a price check on stored invoices, and a sales CSV on your own account.</p>
       </div>
       <div>
         <p class="footer-col-title">Product</p>
@@ -1936,7 +1937,7 @@ document.addEventListener('DOMContentLoaded', () => {
         html += '</tbody></table>';
         html += `<p class="result-row-count">${data.row_count} row${data.row_count !== 1 ? 's' : ''}</p>`;
       } else {
-        html += '<p class="status-msg" style="margin-top:12px">No data found for this query.</p>';
+        html += `<p class="status-msg" style="margin-top:12px">${escHtml(data.key_takeaway || 'No data found for this query.')}</p>`;
       }
 
       queryResult.innerHTML = html;
